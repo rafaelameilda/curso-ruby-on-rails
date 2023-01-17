@@ -58,3 +58,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "simple_form", "~> 5.1"
 
 gem "kaminari", "~> 1.2"
+
+gem "devise", "~> 4.8"
+
+gem "letter_opener", "~> 1.8"

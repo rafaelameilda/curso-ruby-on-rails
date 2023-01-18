@@ -6,10 +6,9 @@
       </strong>
       <h3 class="mb-0"><%= article.title %></h3>
       <div class="mb-1 text-muted">
-        <%= format_date(article.created_at) %>
-        by <%= article.user.email %>
+        <%= render 'article_details', article: article %>
       </div>
-      <p class="card-text mb-auto"><%= truncate(article.body, length: 150) %></p>
+      <p class="card-text mb-auto"><%= truncate(article.body, length: 100) %></p>
       <%= link_to 'Continue reading...', article, class: 'stretched-link' %>
     </div>
     <div class="col-auto d-none d-lg-block">

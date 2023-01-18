@@ -1,12 +1,12 @@
 <article class="blog-post">
   <h2 class="blog-post-title"><%= article.title%></h2>
-  <p class="blog-post-meta"><%=format_date(article.created_at)%>
-    by <%= article.user.email %>
+  <p class="blog-post-meta">
+    <%= render 'article_details', article: article %>
   </p>
   <p><%= truncate(article.body,length: 80) %></p>
   <p><%= link_to 'Continue reading...',article,class:'btn btn-link' %></p>
   <%=link_to 'Edit', edit_article_path(article),
-   class: 'btn btn-secondary'  if policy(article).update? %>
+   class: 'btn btn-primary'  if policy(article).update? %>
   <%=link_to 'Destroy', article_path(article),
   method: :delete,
   data: { confirm: 'Are you sure?' },

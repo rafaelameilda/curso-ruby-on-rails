@@ -9,9 +9,19 @@
       From my Experience
     </h3>
     <p><%= link_to 'New Article',new_article_path, 
-    class:'btn btn-primary' if user_signed_in? %></p>
+    class:'btn btn-success' if user_signed_in? %></p>
     <%= render @articles %>
     <%= render 'pagination' %>
   </div>
   <%= render 'right_side' %>
 </div>
+<%= content_for :category_filter do %>
+  <div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex justify-content-between">
+      <%= @categories.each do |category| %>
+        <%= link_to category.name, root_path(category: category.name),
+         class: "p-2 link-secondary #{'category-active' if category.id.to_s == params[:category]}"  %>
+      <% end %>
+    </nav>
+  </div>
+<% end %>

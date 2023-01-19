@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'articles#index'
 
   resources :articles do
-    resources :coments, only: %i[create]
+    resources :coments, only: %i[create destroy]
   end
 
   resources :categories, except: [:show]

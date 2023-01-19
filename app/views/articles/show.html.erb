@@ -13,4 +13,12 @@
     method: :delete,  data: { confirm: 'Are you sure?' },
     class: 'btn btn-danger'  if policy(@article).destroy? %>
   <%=link_to 'Back',root_path,  class: 'btn btn-secondary' %>
+  <h2 class="mt-3">Comments</h2>
+  <%= render @article.coments %>
+  <h2>Add a comment:</h2>
+  <% if policy(:coment).create? %>
+    <%= render 'coments/form' %>
+  <% else %>
+    Please, login to create a comment.
+  <% end %>
 </article>

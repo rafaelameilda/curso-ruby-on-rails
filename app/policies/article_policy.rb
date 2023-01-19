@@ -10,6 +10,10 @@ class ArticlePolicy < ApplicationPolicy
     true
   end
 
+  def create?
+    user&.id
+  end
+
   def update?
     user&.id == record.user.id
   end

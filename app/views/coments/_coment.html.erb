@@ -1,0 +1,10 @@
+<div class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title"> <%=  format_date(coment.created_at) %></h5>
+    <h6 class="card-subtitle mb-2 text-muted">Commenter: <%= coment.user.email %></h6>
+    <p class="card-text"><%= coment.body %></p>
+    <%= link_to 'Destroy',  article_coment_path(@article, coment),
+    method: :delete,  data: { confirm: 'Are you sure?' },
+    class: 'btn btn-danger'  if policy(coment).destroy? %>
+  </div>
+</div>
